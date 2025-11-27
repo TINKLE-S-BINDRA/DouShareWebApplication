@@ -1,5 +1,6 @@
 package com.example.lendingplatform.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -15,6 +16,7 @@ public class User {
     private Long id;
 
     private String email;
+    @JsonIgnore
     private String password;
     private String role; // Student, Lender, Admin
 

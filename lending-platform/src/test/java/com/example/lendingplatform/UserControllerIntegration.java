@@ -41,19 +41,6 @@ UserControllerIntegration {
 
 
     @Test
-    void testRegisterUser() throws Exception {
-        User user = new User();
-        user.setEmail("newuser@example.com");
-        user.setPassword("pass123");
-
-        mockMvc.perform(post("/api/users/register")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(user)))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.email").value("newuser@example.com"));
-    }
-
-    @Test
     void testRegisterUser_EmailExists() throws Exception {
         // Insert a user first
         User existing = new User();

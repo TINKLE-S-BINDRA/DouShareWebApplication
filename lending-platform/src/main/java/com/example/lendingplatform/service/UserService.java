@@ -20,7 +20,9 @@ public class UserService {
         if (userRepository.findByEmail(user.getEmail()) != null) {
             throw new IllegalArgumentException("Email already exists");
         }
-
+        if (user.getRole() == null) {
+            user.setRole("Student");
+        }
         // Encrypt password before saving
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
